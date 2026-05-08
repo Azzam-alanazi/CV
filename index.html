@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Azzam Alanazi — Information Systems Student and Software Developer based in Riyadh, Saudi Arabia." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Azzam Alanazi — Portfolio" />
+  <meta property="og:description" content="Information Systems Student & Software Developer. Python, Lua, Web Dev." />
+  <meta property="og:image"       content="photo.jpg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Azzam Alanazi — Portfolio" />
+  <meta name="twitter:description" content="Information Systems Student & Software Developer." />
+
+  <title>Azzam Alanazi — Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23818cf8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='white' font-size='14' font-weight='900' font-family='Georgia%2Cserif'%3EAA%3C/text%3E%3C/svg%3E">
+
+  <!-- Font preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="cursor-label"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Page curtain -->
+  <div class="page-curtain" id="page-curtain"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-msg">Copied!</span>
+  </div>
+
+  <!-- Scroll-to-top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Page loader -->
+  <div class="page-loader" id="page-loader">
+    <div class="loader-inner">
+      <span class="loader-brand">AA</span>
+      <div class="loader-track"><div class="loader-fill" id="loader-fill"></div></div>
+      <span class="loader-label">Loading Portfolio</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="top-nav" id="top-nav">
+    <a href="index.html" class="nav-brand">AA</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="mailto:mr.azzam1.q@gmail.com" class="nav-icon-btn" data-tooltip="Copy email" data-copy-email><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Azzam-alanazi" target="_blank" class="nav-icon-btn" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="nav-icon-btn" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <button class="theme-toggle" id="theme-toggle" data-tooltip="Toggle theme" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <a href="mailto:mr.azzam1.q@gmail.com" class="mobile-email">mr.azzam1.q@gmail.com</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-aurora"></div>
+    <div class="hero-mesh" aria-hidden="true">
+      <div class="mesh-blob blob-1"></div>
+      <div class="mesh-blob blob-2"></div>
+      <div class="mesh-blob blob-3"></div>
+    </div>
+
+    <div class="hero-layout container">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span>Portfolio · 2026</span>
+          <span class="eyebrow-line"></span>
+        </div>
+
+        <h1 class="hero-name">
+          <span class="name-row" data-reveal data-scramble>AZZAM</span>
+          <span class="name-row name-italic" data-reveal data-scramble>ALANAZI</span>
+        </h1>
+
+        <p class="hero-role" data-reveal>
+          <span id="typewriter-text">Information Systems × Software Engineer</span><span class="tw-caret" aria-hidden="true"></span>
+        </p>
+
+        <div class="hero-cta" data-reveal>
+          <a href="personal.html" class="btn-primary" data-magnetic>
+            <span>Discover More</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="cv.pdf" download class="btn-outline" data-magnetic>
+            <i class="fas fa-download"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="photo-parallax-wrap" id="photo-parallax-wrap">
+        <div class="photo-wrap" id="photo-wrap">
+          <div class="photo-card" id="photo-card">
+            <div class="photo-frame">
+              <img src="photo.jpg" alt="Azzam Mohmmed Alanazi" />
+              <div class="photo-shimmer"></div>
+            </div>
+            <div class="photo-caption">
+              <span class="photo-name">Azzam Alanazi</span>
+              <span class="photo-status"><span class="status-dot"></span>Available</span>
+            </div>
+          </div>
+          <div class="float-badge badge-tl"><i class="fas fa-code"></i><span>Full Stack Dev</span></div>
+          <div class="float-badge badge-br"><i class="fas fa-graduation-cap"></i><span>IS Student</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- TECH STACK MARQUEE -->
+  <section class="section-stack" aria-label="Technology stack">
+    <div class="stack-fade-left"></div>
+    <div class="stack-fade-right"></div>
+    <div class="stack-track">
+      <div class="stack-inner">
+        <div class="stack-chip"><i class="fab fa-python"></i><span>Python</span></div>
+        <div class="stack-chip"><span class="chip-dot">◈</span><span>Lua</span></div>
+        <div class="stack-chip"><i class="fab fa-html5"></i><span>HTML5</span></div>
+        <div class="stack-chip"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+        <div class="stack-chip"><i class="fab fa-js"></i><span>JavaScript</span></div>
+        <div class="stack-chip"><i class="fas fa-database"></i><span>SQL</span></div>
+        <div class="stack-chip"><span class="chip-dot">⊕</span><span>XML</span></div>
+        <div class="stack-chip"><i class="fab fa-git-alt"></i><span>Git</span></div>
+        <div class="stack-chip"><span class="chip-dot">◇</span><span>VS Code</span></div>
+        <div class="stack-chip"><span class="chip-dot">◈</span><span>TailwindCSS</span></div>
+        <div class="stack-chip"><span class="chip-dot">△</span><span>Three.js</span></div>
+        <!-- duplicate for seamless loop -->
+        <div class="stack-chip"><i class="fab fa-python"></i><span>Python</span></div>
+        <div class="stack-chip"><span class="chip-dot">◈</span><span>Lua</span></div>
+        <div class="stack-chip"><i class="fab fa-html5"></i><span>HTML5</span></div>
+        <div class="stack-chip"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+        <div class="stack-chip"><i class="fab fa-js"></i><span>JavaScript</span></div>
+        <div class="stack-chip"><i class="fas fa-database"></i><span>SQL</span></div>
+        <div class="stack-chip"><span class="chip-dot">⊕</span><span>XML</span></div>
+        <div class="stack-chip"><i class="fab fa-git-alt"></i><span>Git</span></div>
+        <div class="stack-chip"><span class="chip-dot">◇</span><span>VS Code</span></div>
+        <div class="stack-chip"><span class="chip-dot">◈</span><span>TailwindCSS</span></div>
+        <div class="stack-chip"><span class="chip-dot">△</span><span>Three.js</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS BENTO -->
+  <section class="section-metrics">
+    <div class="container">
+      <div class="bento-grid">
+        <div class="bento-cell bento-accent bento-tall reveal-up">
+          <div class="bento-num" data-target="2" data-suffix="+">0</div>
+          <div class="bento-label">Years Experience</div>
+          <i class="bento-bg-icon fas fa-clock"></i>
+        </div>
+        <div class="bento-cell reveal-up" style="--delay:.08s">
+          <div class="bento-num" data-target="4">0</div>
+          <div class="bento-label">Projects</div>
+          <i class="bento-bg-icon fas fa-code-branch"></i>
+        </div>
+        <div class="bento-cell reveal-up" style="--delay:.16s">
+          <div class="bento-num" data-target="7">0</div>
+          <div class="bento-label">Tech Stack</div>
+          <i class="bento-bg-icon fas fa-layer-group"></i>
+        </div>
+        <div class="bento-cell reveal-up" style="--delay:.24s">
+          <div class="bento-num" data-target="2">0</div>
+          <div class="bento-label">Languages</div>
+          <i class="bento-bg-icon fas fa-globe"></i>
+        </div>
+        <div class="bento-cell bento-wide reveal-up" style="--delay:.32s">
+          <div class="bento-wide-inner">
+            <div>
+              <div class="bento-num" data-target="2">0</div>
+              <div class="bento-label">Certifications</div>
+            </div>
+            <p class="bento-desc">Cisco Networking Academy &amp; Shaqra University</p>
+          </div>
+          <i class="bento-bg-icon fas fa-certificate"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section-projects">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-tag">Work</p>
+        <h2 class="section-title">Featured <em>Projects</em></h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card tilt-card reveal-up">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-num">01</span>
+            <a href="https://github.com/Azzam-alanazi/TMOS" target="_blank" class="project-ext-link" aria-label="View on GitHub"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 class="project-title">TMOS — AI Desktop Assistant</h3>
+          <p class="project-desc">Sci-fi desktop AI assistant with always-on wake-word listening, an animated HUD orb, and multi-backend support (Groq, Gemini, Ollama). Built with PyQt6 and QWebEngine.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PyQt6</span>
+            <span class="tech-tag">Groq</span>
+            <span class="tech-tag">Ollama</span>
+          </div>
+          <div class="project-card-overlay">
+            <a href="projects.html" class="project-view-btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card reveal-up" style="--delay:.12s">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-num">02</span>
+            <a href="https://github.com/Azzam-alanazi/Azzam-lua-AI" target="_blank" class="project-ext-link" aria-label="View on GitHub"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 class="project-title">Lua AI Coding Assistant</h3>
+          <p class="project-desc">A fully local, offline Lua coding assistant powered by Ollama and CodeLlama. Free to run, zero cloud dependency — built for game developers and scripters.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Lua</span>
+            <span class="tech-tag">Ollama</span>
+            <span class="tech-tag">CodeLlama</span>
+          </div>
+          <div class="project-card-overlay">
+            <a href="projects.html" class="project-view-btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card reveal-up" style="--delay:.24s">
+          <div class="card-glow"></div>
+          <div class="project-header">
+            <span class="project-num">03</span>
+            <a href="https://github.com/Azzam-alanazi/Design-company-profile-website" target="_blank" class="project-ext-link" aria-label="View on GitHub"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 class="project-title">Luxury Design Company Site</h3>
+          <p class="project-desc">A bilingual (EN/AR) luxury house design company profile website. Clean editorial layout, RTL support, and polished presentation — pure HTML, CSS, and JavaScript.</p>
+          <div class="project-tags">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Bilingual</span>
+          </div>
+          <div class="project-card-overlay">
+            <a href="projects.html" class="project-view-btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section class="section-chapters">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-tag">Explore</p>
+        <h2 class="section-title">My <em>Chapters</em></h2>
+      </div>
+      <div class="chapters-grid">
+        <a href="personal.html" class="chapter-card card-featured tilt-card reveal-up">
+          <div class="card-glow"></div>
+          <span class="card-num">01</span>
+          <div class="card-icon-ring"><i class="fas fa-user-circle"></i></div>
+          <h3>Personal Identity</h3>
+          <p>Explore my technical skill stack, core competencies, and professional background.</p>
+          <div class="card-cta">View Profile <i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="certificates.html" class="chapter-card tilt-card reveal-up" style="--delay:.12s">
+          <div class="card-glow"></div>
+          <span class="card-num">02</span>
+          <div class="card-icon-ring"><i class="fas fa-certificate"></i></div>
+          <h3>Certifications</h3>
+          <p>Official accreditations from Cisco and Shaqra University.</p>
+          <div class="card-cta">View Certs <i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="education.html" class="chapter-card tilt-card reveal-up" style="--delay:.24s">
+          <div class="card-glow"></div>
+          <span class="card-num">03</span>
+          <div class="card-icon-ring"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Education</h3>
+          <p>My ongoing academic journey in Information Systems.</p>
+          <div class="card-cta">View Timeline <i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <h3>Let's <em>Connect</em></h3>
+          <p>Open to collaborations, freelance projects, and interesting conversations. Drop a message and I'll get back to you.</p>
+          <div class="contact-detail"><i class="fas fa-envelope"></i><a href="mailto:mr.azzam1.q@gmail.com">mr.azzam1.q@gmail.com</a></div>
+          <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><span>Riyadh, Saudi Arabia</span></div>
+          <div class="contact-detail"><i class="fab fa-github"></i><a href="https://github.com/Azzam-alanazi" target="_blank">github.com/Azzam-alanazi</a></div>
+          <div class="contact-detail"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank">linkedin.com/in/azzam-alanazi</a></div>
+        </div>
+
+        <form class="contact-form reveal-up" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="--delay:.12s">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="What's this about?" />
+          </div>
+          <div class="form-group">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" placeholder="Tell me about your project or idea…" required></textarea>
+          </div>
+          <p class="form-note">Replace <code>YOUR_FORM_ID</code> in index.html with your <a href="https://formspree.io" target="_blank" style="color:var(--accent)">Formspree</a> ID to enable sending.</p>
+          <button type="submit" class="btn-primary form-submit" data-magnetic>
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">AA</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://github.com/Azzam-alanazi" target="_blank" class="footer-social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:mr.azzam1.q@gmail.com" class="footer-social-btn" aria-label="Email" data-copy-email><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Azzam Alanazi &mdash; Built with precision &amp; passion</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

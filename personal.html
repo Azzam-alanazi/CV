@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Identity — Azzam Alanazi</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23818cf8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='white' font-size='14' font-weight='900' font-family='Georgia%2Cserif'%3EAA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="cursor-label"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="page-curtain" id="page-curtain"></div>
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast" role="status"><i class="fas fa-check-circle"></i><span id="toast-msg">Copied!</span></div>
+
+  <!-- Ambient 3D canvas -->
+  <canvas id="page-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <header class="top-nav" id="top-nav">
+    <a href="index.html" class="nav-brand">AA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html" class="active">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="mailto:mr.azzam1.q@gmail.com" class="nav-icon-btn" data-tooltip="Copy email" data-copy-email><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Azzam-alanazi" target="_blank" class="nav-icon-btn" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="nav-icon-btn" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <button class="theme-toggle" id="theme-toggle" data-tooltip="Toggle theme" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <a href="mailto:mr.azzam1.q@gmail.com" class="mobile-email">mr.azzam1.q@gmail.com</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-main container">
+
+    <div class="page-hero reveal-up">
+      <p class="page-eyebrow">The Developer</p>
+      <h1 class="page-title">Personal <em>Identity</em></h1>
+      <div class="page-divider"></div>
+    </div>
+
+    <!-- Profile banner -->
+    <div class="personal-hero reveal-up" style="--delay:.1s">
+      <div class="ph-photo-wrap">
+        <img src="photo.jpg" alt="Azzam Mohmmed Alanazi" loading="lazy" />
+      </div>
+      <div class="ph-info">
+        <h2 class="ph-name">Azzam <em>Alanazi</em></h2>
+        <p class="ph-role">Information Systems Student &amp; Software Developer</p>
+        <div class="ph-tags">
+          <span class="ph-tag"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</span>
+          <span class="ph-tag"><i class="fas fa-graduation-cap"></i> Shaqra University</span>
+          <span class="ph-tag"><i class="fas fa-code"></i> Full Stack Dev</span>
+          <span class="ph-tag"><span class="ph-status-dot"></span> Available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Currently Learning -->
+    <div class="learning-strip reveal-up" style="--delay:.05s">
+      <span class="learning-label"><i class="fas fa-bolt"></i> Currently Learning</span>
+      <div class="learning-items">
+        <span class="learning-item">React</span>
+        <span class="learning-sep">·</span>
+        <span class="learning-item">Advanced SQL</span>
+        <span class="learning-sep">·</span>
+        <span class="learning-item">System Design</span>
+        <span class="learning-sep">·</span>
+        <span class="learning-item">Node.js</span>
+      </div>
+    </div>
+
+    <div class="personal-layout">
+
+      <!-- Demographics -->
+      <div class="info-panel reveal-up">
+        <p class="panel-label">01 — Demographics</p>
+        <div class="info-row"><span class="label">Name</span><span class="value">Azzam Mohmmed Alanazi</span></div>
+        <div class="info-row"><span class="label">Birth Year</span><span class="value">2005</span></div>
+        <div class="info-row"><span class="label">Location</span><span class="value">Riyadh, Saudi Arabia</span></div>
+        <div class="info-row"><span class="label">Email</span><span class="value">mr.azzam1.q@gmail.com</span></div>
+        <div class="info-row"><span class="label">Phone</span><span class="value" dir="ltr">+966 592334091</span></div>
+      </div>
+
+      <!-- Languages -->
+      <div class="info-panel reveal-up" style="--delay:.08s">
+        <p class="panel-label">02 — Languages</p>
+        <div class="info-row"><span class="label">Arabic</span><span class="value">Native</span></div>
+        <div class="info-row"><span class="label">English</span><span class="value">Intermediate</span></div>
+      </div>
+
+      <!-- Professional Stack -->
+      <div class="info-panel reveal-up" style="--delay:.16s">
+        <p class="panel-label">03 — Professional Stack</p>
+        <div class="info-row"><span class="label">Dev Tools</span><span class="value">VS Code, Git</span></div>
+        <div class="info-row"><span class="label">UI Frameworks</span><span class="value">TailwindCSS, Vanilla CSS</span></div>
+        <div class="info-row"><span class="label">Disciplines</span><span class="value">Backend Logic, System Integration</span></div>
+      </div>
+
+      <!-- Technical Skills (bars) -->
+      <div class="info-panel reveal-up" style="--delay:.24s">
+        <p class="panel-label">04 — Technical Fluency</p>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-meta"><span>Lua</span><span class="skill-pct">85%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-meta"><span>Python</span><span class="skill-pct">80%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-meta"><span>HTML &amp; CSS</span><span class="skill-pct">75%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-meta"><span>SQL</span><span class="skill-pct">70%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-meta"><span>XML</span><span class="skill-pct">65%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:65%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-meta"><span>JavaScript</span><span class="skill-pct">60%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:60%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radar chart -->
+      <div class="info-panel reveal-up" style="--delay:.32s">
+        <p class="panel-label">05 — Skill Radar</p>
+        <div class="radar-wrap">
+          <svg id="radar-svg" class="radar-svg" width="220" height="220" viewBox="0 0 220 220"></svg>
+        </div>
+      </div>
+
+      <!-- Tech Tags -->
+      <div class="info-panel reveal-up" style="--delay:.40s">
+        <p class="panel-label">06 — Technology Stack</p>
+        <div class="tech-tags">
+          <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+          <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+          <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+          <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
+          <span class="tech-tag"><i class="fas fa-code"></i> Lua</span>
+          <span class="tech-tag"><i class="fas fa-file-code"></i> XML</span>
+          <span class="tech-tag"><i class="fab fa-git-alt"></i> Git</span>
+          <span class="tech-tag"><i class="fas fa-wind"></i> Tailwind</span>
+          <span class="tech-tag"><i class="fas fa-terminal"></i> VS Code</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">AA</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://github.com/Azzam-alanazi" target="_blank" class="footer-social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:mr.azzam1.q@gmail.com" class="footer-social-btn" data-copy-email aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Azzam Alanazi &mdash; Built with precision &amp; passion</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

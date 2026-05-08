@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Azzam Alanazi</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23818cf8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='white' font-size='14' font-weight='900' font-family='Georgia%2Cserif'%3EAA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="cursor-label"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="page-curtain" id="page-curtain"></div>
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast" role="status"><i class="fas fa-check-circle"></i><span id="toast-msg">Copied!</span></div>
+
+  <!-- Ambient 3D canvas -->
+  <canvas id="page-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <header class="top-nav" id="top-nav">
+    <a href="index.html" class="nav-brand">AA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="mailto:mr.azzam1.q@gmail.com" class="nav-icon-btn" data-tooltip="Copy email" data-copy-email><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Azzam-alanazi" target="_blank" class="nav-icon-btn" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="nav-icon-btn" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <button class="theme-toggle" id="theme-toggle" data-tooltip="Toggle theme" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <a href="mailto:mr.azzam1.q@gmail.com" class="mobile-email">mr.azzam1.q@gmail.com</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-main container">
+
+    <div class="page-hero reveal-up">
+      <p class="page-eyebrow">My Work</p>
+      <h1 class="page-title">Featured <em>Projects</em></h1>
+      <div class="page-divider"></div>
+    </div>
+
+    <!-- Full project list -->
+    <div class="certs-list">
+
+      <!-- Project 1: TMOS -->
+      <article class="cert-card reveal-up">
+        <div class="cert-meta">
+          <span class="cert-date">2025 — Present</span>
+          <h2 class="cert-title">TMOS — AI Desktop Assistant</h2>
+          <p class="cert-issuer">Personal Project — Python / PyQt6</p>
+          <p class="cert-desc">A sci-fi themed desktop AI assistant with always-on wake-word listening and an animated HUD orb interface. Supports multiple AI backends including Groq, Gemini, and local Ollama models. Built with PyQt6 and QWebEngine for a sleek native desktop experience with real-time voice interaction.</p>
+          <div class="project-tags" style="margin-bottom:20px">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PyQt6</span>
+            <span class="tech-tag">Groq API</span>
+            <span class="tech-tag">Gemini</span>
+            <span class="tech-tag">Ollama</span>
+          </div>
+          <a href="https://github.com/Azzam-alanazi/TMOS" target="_blank" class="btn">
+            <span>View on GitHub</span>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="cert-visual" style="cursor:default">
+          <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;font-size:13px;color:var(--muted);line-height:1.8">
+              <span style="color:var(--accent);font-weight:700">Highlights</span><br/>
+              ✦ Always-on wake-word detection<br/>
+              ✦ Animated sci-fi HUD orb UI<br/>
+              ✦ Multi-backend AI (Groq / Gemini / Ollama)<br/>
+              ✦ Real-time voice interaction<br/>
+              ✦ PyQt6 + QWebEngine desktop app<br/>
+              ✦ Offline-capable via Ollama
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px">
+              <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Status</p>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)">
+                <span style="width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block;animation:status-pulse 2s infinite"></span>
+                Active Development
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Lua AI -->
+      <article class="cert-card reveal-up" style="--delay:.1s">
+        <div class="cert-meta">
+          <span class="cert-date">2024 — 2025</span>
+          <h2 class="cert-title">Lua AI Coding Assistant</h2>
+          <p class="cert-issuer">Personal Project — Lua / Ollama</p>
+          <p class="cert-desc">A fully local, offline Lua coding assistant powered by Ollama and the CodeLlama model. Built for game developers and FiveM scripters who need intelligent code suggestions without sending data to the cloud. Zero subscription cost, zero internet dependency after setup.</p>
+          <div class="project-tags" style="margin-bottom:20px">
+            <span class="tech-tag">Lua</span>
+            <span class="tech-tag">Ollama</span>
+            <span class="tech-tag">CodeLlama</span>
+            <span class="tech-tag">AI</span>
+          </div>
+          <a href="https://github.com/Azzam-alanazi/Azzam-lua-AI" target="_blank" class="btn">
+            <span>View on GitHub</span>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="cert-visual" style="cursor:default">
+          <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;font-size:13px;color:var(--muted);line-height:1.8">
+              <span style="color:var(--accent);font-weight:700">Highlights</span><br/>
+              ✦ 100% offline after setup<br/>
+              ✦ Ollama + CodeLlama backend<br/>
+              ✦ Lua-optimized suggestions<br/>
+              ✦ No API key or subscription<br/>
+              ✦ Ideal for FiveM / game scripting<br/>
+              ✦ Lightweight and private
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px">
+              <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Stack</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <span class="tech-tag">Lua 5.4</span>
+                <span class="tech-tag">Ollama</span>
+                <span class="tech-tag">CodeLlama 7B</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: Design Company Website -->
+      <article class="cert-card reveal-up" style="--delay:.2s">
+        <div class="cert-meta">
+          <span class="cert-date">2024</span>
+          <h2 class="cert-title">Luxury Design Company Site</h2>
+          <p class="cert-issuer">Client Project — HTML / CSS / JavaScript</p>
+          <p class="cert-desc">A bilingual (English / Arabic) luxury house design company profile website. Features a clean editorial layout, full RTL Arabic support, smooth scroll interactions, and a polished presentation-layer design. Built entirely from scratch without frameworks — pure HTML, CSS, and vanilla JavaScript.</p>
+          <div class="project-tags" style="margin-bottom:20px">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Bilingual</span>
+            <span class="tech-tag">RTL</span>
+          </div>
+          <a href="https://github.com/Azzam-alanazi/Design-company-profile-website" target="_blank" class="btn">
+            <span>View on GitHub</span>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="cert-visual" style="cursor:default">
+          <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;font-size:13px;color:var(--muted);line-height:1.8">
+              <span style="color:var(--accent);font-weight:700">Highlights</span><br/>
+              ✦ Bilingual EN / AR interface<br/>
+              ✦ Full RTL layout support<br/>
+              ✦ Luxury editorial typography<br/>
+              ✦ Smooth scroll animations<br/>
+              ✦ No frameworks — pure vanilla<br/>
+              ✦ Mobile responsive design
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px">
+              <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Type</p>
+              <p style="font-size:13px;color:var(--muted)">Client / freelance — luxury interior design niche</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: CV Portfolio -->
+      <article class="cert-card reveal-up" style="--delay:.3s">
+        <div class="cert-meta">
+          <span class="cert-date">2025 — 2026</span>
+          <h2 class="cert-title">3D Portfolio Website</h2>
+          <p class="cert-issuer">Personal Project — Three.js / GSAP</p>
+          <p class="cert-desc">This very site — a fully custom portfolio built from scratch. Features a real-time Three.js WebGL scene with unique 3D elements per page, GSAP ScrollTrigger letter reveals, page curtain transitions, dual-accent design system (indigo + gold), dark/light mode, typewriter animation, SVG radar chart, Konami code easter egg, and a Formspree contact form.</p>
+          <div class="project-tags" style="margin-bottom:20px">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Three.js</span>
+            <span class="tech-tag">GSAP</span>
+          </div>
+          <a href="https://github.com/Azzam-alanazi/CV" target="_blank" class="btn">
+            <span>View on GitHub</span>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="cert-visual" style="cursor:default">
+          <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;font-size:13px;color:var(--muted);line-height:1.8">
+              <span style="color:var(--accent);font-weight:700">Highlights</span><br/>
+              ✦ Unique Three.js scene per page<br/>
+              ✦ GSAP letter stagger + ScrollTrigger<br/>
+              ✦ Page curtain transitions<br/>
+              ✦ Dark / light mode toggle<br/>
+              ✦ SVG radar chart (animated)<br/>
+              ✦ Konami code easter egg<br/>
+              ✦ Typewriter role animation<br/>
+              ✦ Contact form (Formspree)
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px">
+              <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Status</p>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)">
+                <span style="width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block;animation:status-pulse 2s infinite"></span>
+                Live &amp; In Development
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">AA</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://github.com/Azzam-alanazi" target="_blank" class="footer-social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:mr.azzam1.q@gmail.com" class="footer-social-btn" data-copy-email aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Azzam Alanazi &mdash; Built with precision &amp; passion</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

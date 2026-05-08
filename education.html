@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education — Azzam Alanazi</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23818cf8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='white' font-size='14' font-weight='900' font-family='Georgia%2Cserif'%3EAA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="cursor-label"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="page-curtain" id="page-curtain"></div>
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast" role="status"><i class="fas fa-check-circle"></i><span id="toast-msg">Copied!</span></div>
+
+  <!-- Ambient 3D canvas -->
+  <canvas id="page-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <header class="top-nav" id="top-nav">
+    <a href="index.html" class="nav-brand">AA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html" class="active">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="mailto:mr.azzam1.q@gmail.com" class="nav-icon-btn" data-tooltip="Copy email" data-copy-email><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Azzam-alanazi" target="_blank" class="nav-icon-btn" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="nav-icon-btn" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <button class="theme-toggle" id="theme-toggle" data-tooltip="Toggle theme" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="personal.html">Personal</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+    <a href="mailto:mr.azzam1.q@gmail.com" class="mobile-email">mr.azzam1.q@gmail.com</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-main container">
+
+    <div class="page-hero reveal-up">
+      <p class="page-eyebrow">My Journey</p>
+      <h1 class="page-title">Educational <em>Chronicle</em></h1>
+      <div class="page-divider"></div>
+    </div>
+
+    <div class="edu-timeline">
+      <div class="timeline-rail" id="timeline-rail"></div>
+
+      <!-- Future -->
+      <article class="edu-card">
+        <div class="timeline-dot"></div>
+        <div class="edu-card-year">∞</div>
+        <div class="edu-icon"><i class="fas fa-rocket"></i></div>
+        <div class="edu-body">
+          <p class="edu-school">What's Next</p>
+          <h3 class="edu-heading">The Journey Continues</h3>
+          <p class="edu-desc">Aiming to graduate with honors, earn more advanced certifications, grow as an independent developer, and build impactful software products.</p>
+        </div>
+      </article>
+
+      <!-- University -->
+      <article class="edu-card">
+        <div class="timeline-dot"></div>
+        <div class="edu-card-year">26</div>
+        <div class="edu-icon"><i class="fas fa-university"></i></div>
+        <div class="edu-body">
+          <p class="edu-school">Shaqra University — College of Computing &amp; IT</p>
+          <h3 class="edu-heading">Bachelor's in Information Systems</h3>
+          <p class="edu-desc">Pursuing a Bachelor's degree in Information Systems — studying software development, databases, networks, and systems analysis. Actively building projects and applying classroom knowledge to real-world development.</p>
+        </div>
+      </article>
+
+      <!-- HTML Cert -->
+      <article class="edu-card">
+        <div class="timeline-dot"></div>
+        <div class="edu-card-year">26</div>
+        <div class="edu-icon"><i class="fas fa-code"></i></div>
+        <div class="edu-body">
+          <p class="edu-school">Shaqra University × Cisco</p>
+          <h3 class="edu-heading">HTML Essentials</h3>
+          <p class="edu-desc">Earned the HTML Essentials certificate through the College of Computing and IT at Shaqra University, validating frontend structure development skills.</p>
+        </div>
+      </article>
+
+      <!-- Python Cert -->
+      <article class="edu-card">
+        <div class="timeline-dot"></div>
+        <div class="edu-card-year">24</div>
+        <div class="edu-icon"><i class="fab fa-python"></i></div>
+        <div class="edu-body">
+          <p class="edu-school">Cisco Networking Academy</p>
+          <h3 class="edu-heading">Python Essentials 1</h3>
+          <p class="edu-desc">Earned the Python Essentials 1 certificate, validating core programming algorithms and deep backend Python mechanics through Cisco's official curriculum.</p>
+        </div>
+      </article>
+
+      <!-- High School -->
+      <article class="edu-card">
+        <div class="timeline-dot"></div>
+        <div class="edu-card-year">23</div>
+        <div class="edu-icon"><i class="fas fa-school"></i></div>
+        <div class="edu-body">
+          <p class="edu-school">Saudi Arabia</p>
+          <h3 class="edu-heading">High School Diploma</h3>
+          <p class="edu-desc">Completed high school education in 2023, building the foundation of discipline and analytical thinking that led to pursuing a technology-focused university degree.</p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">AA</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://github.com/Azzam-alanazi" target="_blank" class="footer-social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/azzam-alanazi-973a5234b/" target="_blank" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:mr.azzam1.q@gmail.com" class="footer-social-btn" data-copy-email aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Azzam Alanazi &mdash; Built with precision &amp; passion</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
